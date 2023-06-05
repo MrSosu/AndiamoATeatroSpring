@@ -13,15 +13,23 @@ import java.time.LocalDate;
 @Entity
 @Table
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
     private LocalDate dateOfPurchase;
     @ManyToOne
-    private User user;
+    private Utente utente;
     @ManyToOne
     private Seat seat;
     @ManyToOne
     private Liveshow show;
+
+    public Ticket(LocalDate dateOfPurchase, Utente utente, Seat seat, Liveshow show) {
+        this.dateOfPurchase = dateOfPurchase;
+        this.utente = utente;
+        this.seat = seat;
+        this.show = show;
+    }
 }
