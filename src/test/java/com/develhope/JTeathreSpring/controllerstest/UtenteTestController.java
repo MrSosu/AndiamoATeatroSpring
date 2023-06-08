@@ -1,10 +1,8 @@
-package com.develhope.JTeathreSpring.controllers;
+package com.develhope.JTeathreSpring.controllerstest;
 
-import com.develhope.JTeathreSpring.entities.Ticket;
 import com.develhope.JTeathreSpring.entities.Utente;
 import com.develhope.JTeathreSpring.entities.Venue;
 import com.develhope.JTeathreSpring.repositories.UtenteRepository;
-import com.develhope.JTeathreSpring.services.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,14 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/utente")
-public class UtenteController {
+@RequestMapping("/utenteTest")
+public class UtenteTestController {
 
     @Autowired
     private UtenteRepository utenteRepository;
-
-    @Autowired
-    private UtenteService utenteService;
 
     @PostMapping("/register")
     public void createUser(@RequestBody Utente utente) {
@@ -49,8 +44,5 @@ public class UtenteController {
     }
 
 
-    @PostMapping("/buyticket")
-    public double buyTicket(@RequestParam long id_user, @RequestParam  long id_seat, @RequestParam long id_show) {
-        return utenteService.buyTicket(id_user, id_seat, id_show);
-    }
 }
+

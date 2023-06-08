@@ -12,7 +12,8 @@ import java.util.Optional;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
-    @Query("select * from ticket where seat_id = :seat and show_id = :show")
+
+    @Query(value = "select id from ticket where seat_id = :seat and show_id = :show", nativeQuery = true)
     Collection<Ticket> getTicketBooked(@Param("seat") Long seat_id, @Param("show") Long show_id);
 
 }

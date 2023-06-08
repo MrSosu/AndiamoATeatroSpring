@@ -51,7 +51,7 @@ public class UtenteService {
         if (liveshow.getDate().isBefore(LocalDate.now())) throw new IllegalArgumentException("lo spettacolo è già finito!");
 
         // 5) controllo se il posto per quello spettacolo non sia già acquistato
-        if (ticketRepository.getTicketBooked(id_seat, id_show).size() > 0) throw new IllegalArgumentException("posto già prenotato");
+        // if (ticketRepository.getTicketBooked(id_seat, id_show).size() > 0) throw new IllegalArgumentException("posto già prenotato");
         ticketRepository.saveAndFlush(new Ticket(LocalDate.now(), utente, seat, liveshow));
         System.out.println("Complimenti! Acquisto effettuato! Il prezzo che hai pagato è: " + liveshow.getPrice());
         return liveshow.getPrice();
