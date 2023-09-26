@@ -14,10 +14,12 @@ import java.time.LocalDate;
 @Table
 public class Liveshow {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(nullable = false)
     private LocalDate date;
+    @Column(nullable = false)
+    private String name;
     @Column(nullable = false)
     private int durationInMinutes;
     @Column(nullable = false)

@@ -15,9 +15,9 @@ import java.time.LocalDate;
 public class Ticket {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(nullable = false)
+    @Column
     private LocalDate dateOfPurchase;
     @ManyToOne
     private Utente utente;
